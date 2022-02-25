@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export function Slide() {
+
   return (
     <Box
       display={'flex'}
@@ -32,7 +33,7 @@ export function Slide() {
 
         width={1000}
       >
-        <SwiperSlide style={{ position: 'relative' }}><Image w={1000} h={500} src='./assets/europa.jpg' /><Text position={'absolute'} zIndex={3} top={'40%'} left={'40%'} color={'white'} fontSize={'6xl'}>Europa</Text></SwiperSlide>
+        <SwiperSlide style={{ position: 'relative' }}><Image w={1000} h={500} src='./assets/europa.jpg' /><Text position={'absolute'} zIndex={3} top={'40%'} left={'40%'} color={'white'} fontSize={'6xl'}><a href="/continents/europa">Europa</a></Text></SwiperSlide>
         <SwiperSlide style={{ position: 'relative' }}><Image w={1000} h={500} src='./assets/america_s.jpg' /><Text position={'absolute'} zIndex={3} top={'40%'} left={'40%'} color={'white'} fontSize={'6xl'}>América do Sul</Text></SwiperSlide>
         <SwiperSlide style={{ position: 'relative' }}><Image w={1000} h={500} src='./assets/asia.jpg' /><Text position={'absolute'} zIndex={3} top={'40%'} left={'40%'} color={'white'} fontSize={'6xl'}>Ásia</Text></SwiperSlide>
         <SwiperSlide style={{ position: 'relative' }}><Image w={1000} h={500} src='./assets/oceania.jpg' /><Text position={'absolute'} zIndex={3} top={'40%'} left={'40%'} color={'white'} fontSize={'6xl'}>Oceania</Text></SwiperSlide>

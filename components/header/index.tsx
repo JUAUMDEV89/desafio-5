@@ -9,7 +9,7 @@ export function Header(){
          alignItems={'center'}
          backgroundColor={'gray.100'}
         >
-            <img src="./assets/Logo.svg" alt="logo" />
+            <img src="../assets/Logo.svg" alt="logo" />
         </Flex>
     )
 }
