@@ -1,5 +1,4 @@
 import { Flex, Text, Box, Image } from '@chakra-ui/react';
-
 import { CardList } from '../components/cardList'
 import { Slide } from '../components/slide';
 

@@ -1,8 +1,36 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
+import {  useRouter } from 'next/router';
 import { Flex, Box, Image, Text, Grid } from '@chakra-ui/react';
+import { api } from '../../services/api';
 
 import { CityCard } from '../../components/cityCard';
 
+interface countryProps{
+  name:string;
+  capital:string;
+  imgSrc:string;
+}
+
 export default () => {
+
+  const [countries, setCountries] = useState<countryProps []>([]);
+
+  useEffect(()=>{
+
+    //const { query } = useRouter();
+
+    async function loadCountry (){
+      const response = await api.get(`eu`);
+
+      console.log(response.data)
+
+      setCountries(response.data);
+    }
+    
+    loadCountry();
+  }, []);
+
   return (
     <Box
       w="100%"
@@ -71,11 +99,17 @@ export default () => {
         gap={5}
         paddingLeft={'2rem'}
       >
-        <CityCard />
-        <CityCard />
-        <CityCard />
-        <CityCard />
-        <CityCard />
+        {
+          countries.map(country => {
+            return(
+              <CityCard
+               name={country.name}
+               capital={country.capital}
+               img={coutry.imgSrc}
+              />
+            )
+          })
+        }
       </Grid>
      </Flex>
     </Box>

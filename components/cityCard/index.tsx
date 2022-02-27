@@ -1,6 +1,12 @@
 import { Flex, Text, Box, Image } from '@chakra-ui/react';
 
-export function CityCard(){
+interface CityCardProps{
+  name: string,
+  capital: string,
+  urlImg: string
+}
+
+export function CityCard({ name, capital, urlImg }: CityCardProps){
     return(
        <Flex
         w={'256px'}
@@ -10,6 +16,7 @@ export function CityCard(){
         backgroundColor={'white'}
         borderRadius={'0.4rem'}
         border={'0.1px solid orange'}
+        cursor="pointer"
        >
            <Image borderTopRadius={'0.4rem'} h={'173px'} src='../assets/africa.jpg' />
 
@@ -18,10 +25,10 @@ export function CityCard(){
                 flexDirection={'column'}
                 marginRight={'3rem'}
               >
-                <Text as={'strong'}>Aldeia</Text>
-                <Text color={'gray.400'} as={'span'}>África do sul</Text>
+                <Text as={'strong'}>{name}</Text>
+                <Text color={'gray.400'} as={'span'}>{capital}</Text>
               </Flex>
-              <Image w={'30px'} h={'30px'} borderRadius={'50%'} src='../assets/SouthAfrica.jpg' />
+              <Image w={'30px'} h={'30px'} borderRadius={'50%'} src={urlImg} />
            </Flex>
 
        </Flex>
