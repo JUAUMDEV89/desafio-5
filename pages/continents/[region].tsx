@@ -9,7 +9,7 @@ import { CityCard } from '../../components/cityCard';
 interface countryProps{
   name:string;
   capital:string;
-  imgSrc:string;
+  flag:string;
 }
 
 export default () => {
@@ -23,7 +23,7 @@ export default () => {
     async function loadCountry (){
       const response = await api.get(`eu`);
 
-      console.log(response.data)
+      console.log(response.data[0])
 
       setCountries(response.data);
     }
@@ -71,7 +71,7 @@ export default () => {
         </Text>
         <Flex>
           <Flex marginRight={'4rem'} flexDirection={'column'} alignItems={'center'}>
-            <Text as={'strong'} fontSize={'3rem'} color={'#FFBA08'}>50</Text>
+            <Text as={'strong'} fontSize={'3rem'} color={'#FFBA08'}>{countries.length}</Text>
             <Text as={'strong'}>Países</Text>
           </Flex>
 
@@ -87,7 +87,7 @@ export default () => {
         </Flex>
       </Flex>
 
-      <Box display="flex" marginBottom={'2rem'} w='100%' justifyContent={'flex-start'} paddingLeft={'7rem'}><Text fontSize={'1.7rem'} as={'strong'}>Cidades +100</Text></Box>
+      <Box display="flex" marginBottom={'2rem'} w='100%' justifyContent={'flex-start'} paddingLeft={'7rem'}><Text fontSize={'1.7rem'} as={'strong'}>Países</Text></Box>
 
      <Flex w={'100%'} maxWidth={'1200px'} margin={'auto'}>
      <Grid
@@ -99,17 +99,14 @@ export default () => {
         gap={5}
         paddingLeft={'2rem'}
       >
-        {
-          countries.map(country => {
-            return(
-              <CityCard
-               name={country.name}
-               capital={country.capital}
-               img={coutry.imgSrc}
-              />
-            )
-          })
-        }
+       { countries.map(country=>(
+         <CityCard
+          key={country.name}
+          name={country.name}
+          urlImg={country.flag}
+          capital={country.capital}
+         />
+       )) }
       </Grid>
      </Flex>
     </Box>

@@ -18,7 +18,7 @@ export function CityCard({ name, capital, urlImg }: CityCardProps){
         border={'0.1px solid orange'}
         cursor="pointer"
        >
-           <Image borderTopRadius={'0.4rem'} h={'173px'} src='../assets/africa.jpg' />
+           <Image borderTopRadius={'0.4rem'} h={'173px'} src={urlImg} />
 
            <Flex  padding={'1rem'} alignItems={'center'} justifyContent={'space-between'}>
               <Flex
